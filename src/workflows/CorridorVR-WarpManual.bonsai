@@ -3,12 +3,12 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
+                 xmlns:bv="clr-namespace:BonVision;assembly=BonVision"
+                 xmlns:p1="clr-namespace:OpenTK;assembly=OpenTK"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:scr="clr-namespace:Bonsai.Scripting;assembly=Bonsai.Scripting"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
-                 xmlns:bv="clr-namespace:BonVision;assembly=BonVision"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
-                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
-                 xmlns:p1="clr-namespace:OpenTK;assembly=OpenTK"
                  xmlns:gli="clr-namespace:Bonsai.Shaders.Input;assembly=Bonsai.Shaders"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:p2="clr-namespace:;assembly=Extensions"
@@ -17,8 +17,8 @@
     <Nodes>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>640</gl:Width>
-          <gl:Height>480</gl:Height>
+          <gl:Width>1280</gl:Width>
+          <gl:Height>720</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
           <gl:ClearColor>DimGray</gl:ClearColor>
@@ -27,7 +27,7 @@
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
           <gl:WindowState>Normal</gl:WindowState>
-          <gl:DisplayDevice>Primary</gl:DisplayDevice>
+          <gl:DisplayDevice>Second</gl:DisplayDevice>
           <gl:TargetRenderFrequency>0</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
           <gl:RenderState />
@@ -63,6 +63,14 @@
             <gl:MeshConfiguration xsi:type="gl:TexturedQuad">
               <gl:Name>WarpQuad</gl:Name>
               <gl:QuadEffects>None</gl:QuadEffects>
+            </gl:MeshConfiguration>
+            <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+              <gl:Name>cylinder</gl:Name>
+              <gl:FileName>Models\cylinder.obj</gl:FileName>
+            </gl:MeshConfiguration>
+            <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+              <gl:Name>ParabolicScreen</gl:Name>
+              <gl:FileName>Models\parabolic.obj</gl:FileName>
             </gl:MeshConfiguration>
           </gl:Meshes>
         </Combinator>
@@ -242,6 +250,19 @@
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>grid</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>Textures\grid.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
           </gl:Textures>
         </Combinator>
       </Expression>
@@ -261,51 +282,116 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:RenderFrame" />
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.PerspectiveView.bonsai">
-        <Light>
-          <X>0</X>
-          <Y>1</Y>
-          <Z>1</Z>
-        </Light>
-        <FieldOfView>81.63721</FieldOfView>
-        <Eye>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Eye>
-        <Target>
-          <X>-0</X>
-          <Y>-0</Y>
-          <Z>-1</Z>
-        </Target>
-        <Up>
-          <X>0</X>
-          <Y>1</Y>
-          <Z>0</Z>
-        </Up>
-        <NearClip>0.1</NearClip>
-        <FarClip>1000</FarClip>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:CreateCubemapCamera">
-            <gl:Eye>
-              <gl:X>0</gl:X>
-              <gl:Y>0</gl:Y>
-              <gl:Z>0</gl:Z>
-            </gl:Eye>
-            <gl:NearClip>0.1</gl:NearClip>
-            <gl:FarClip>1000</gl:FarClip>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="scr:ExpressionTransform">
-          <scr:Expression>new(
-ViewMatrix as ViewMatrix,
-ProjectionMatrix as ProjectionMatrix,
-ViewMatrix.Row3.Yzw as Light)</scr:Expression>
-        </Builder>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>PerspectiveView</Name>
+        <Description>Specifies a perspective view, commonly used for 3D stimulus environments.</Description>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedProperty">
+              <MemberName>Value</MemberName>
+              <Name>Light</Name>
+              <Description>The position of the main point light.</Description>
+            </Expression>
+            <Expression xsi:type="ExternalizedProperty">
+              <MemberName>Value</MemberName>
+              <Name>FieldOfView</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="bv:FieldOfViewProperty">
+                <bv:Value>110</bv:Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="ExternalizedProperty">
+              <MemberName>FovY</MemberName>
+              <Name />
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Eye" />
+              <Property Name="Target" />
+              <Property Name="Up" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:CreateLookAt">
+                <gl:Eye>
+                  <gl:X>0</gl:X>
+                  <gl:Y>-0.1</gl:Y>
+                  <gl:Z>0</gl:Z>
+                </gl:Eye>
+                <gl:Target>
+                  <gl:X>-0</gl:X>
+                  <gl:Y>-0</gl:Y>
+                  <gl:Z>-1</gl:Z>
+                </gl:Target>
+                <gl:Up>
+                  <gl:X>0</gl:X>
+                  <gl:Y>1</gl:Y>
+                  <gl:Z>0</gl:Z>
+                </gl:Up>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="PropertySource" TypeArguments="gl:CreateLookAt,p1:Vector3">
+              <MemberName>Eye</MemberName>
+              <Value>
+                <X>0</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Value>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="FloatProperty">
+                <Value>2.8</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="InputMapping">
+              <PropertyMappings>
+                <Property Name="AspectRatio" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="NearClip" />
+              <Property Name="FarClip" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:CreatePerspectiveFieldOfView">
+                <gl:FovY>1.91986215</gl:FovY>
+                <gl:AspectRatio>2.8</gl:AspectRatio>
+                <gl:NearClip>0.1</gl:NearClip>
+                <gl:FarClip>1000</gl:FarClip>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+Item1 as ViewMatrix,
+Item2 as ProjectionMatrix,
+Item3 as Light)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="6" Label="Source1" />
+            <Edge From="0" To="7" Label="Source1" />
+            <Edge From="0" To="8" Label="Source1" />
+            <Edge From="1" To="7" Label="Source2" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="11" Label="Source2" />
+            <Edge From="5" To="6" Label="Source2" />
+            <Edge From="6" To="12" Label="Source1" />
+            <Edge From="7" To="12" Label="Source3" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="11" Label="Source1" />
+            <Edge From="10" To="11" Label="Source3" />
+            <Edge From="11" To="12" Label="Source2" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
       <Expression xsi:type="BehaviorSubject">
         <Name>Draw3DStim</Name>
@@ -315,8 +401,8 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
           <gl:RenderState />
           <gl:ClearColor>DarkBlue</gl:ClearColor>
           <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
-          <gl:Width>2048</gl:Width>
-          <gl:Height>2048</gl:Height>
+          <gl:Width>4096</gl:Width>
+          <gl:Height>4096</gl:Height>
           <gl:InternalFormat>Rgba</gl:InternalFormat>
           <gl:WrapS>Repeat</gl:WrapS>
           <gl:WrapT>Repeat</gl:WrapT>
@@ -328,6 +414,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
         <Combinator xsi:type="gl:BindTexture">
           <gl:TextureSlot>Texture0</gl:TextureSlot>
           <gl:ShaderName>TexturedModel</gl:ShaderName>
+          <gl:TextureName />
           <gl:TextureTarget>Texture2D</gl:TextureTarget>
         </Combinator>
       </Expression>
@@ -627,7 +714,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                             <gl:Order>Prepend</gl:Order>
                             <gl:X>0</gl:X>
                             <gl:Y>-3</gl:Y>
-                            <gl:Z>-460</gl:Z>
+                            <gl:Z>-450</gl:Z>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="ExternalizedMapping">
@@ -894,7 +981,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-460</TranslationZ>
+                          <TranslationZ>-450</TranslationZ>
                           <ScaleX>100</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -969,7 +1056,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-710</TranslationZ>
+                          <TranslationZ>-700</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1046,7 +1133,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>-10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-210</TranslationZ>
+                          <TranslationZ>-200</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>12</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1162,7 +1249,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-460</TranslationZ>
+                          <TranslationZ>-450</TranslationZ>
                           <ScaleX>100</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1237,7 +1324,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-710</TranslationZ>
+                          <TranslationZ>-700</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1314,7 +1401,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>10</TranslationX>
                           <TranslationY>3</TranslationY>
-                          <TranslationZ>-210</TranslationZ>
+                          <TranslationZ>-200</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>12.0001</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -2726,7 +2813,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
             </Expression>
             <Expression xsi:type="Multiply">
               <Operand xsi:type="DoubleProperty">
-                <Value>5</Value>
+                <Value>0.5</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
@@ -2826,7 +2913,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   </Expression>
                   <Expression xsi:type="Add">
                     <Operand xsi:type="DoubleProperty">
-                      <Value>-10</Value>
+                      <Value>0</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="scr:ExpressionTransform">
@@ -2975,9 +3062,9 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
           <Y>1</Y>
           <Z>1</Z>
         </Light>
-        <FieldOfView>133.904648</FieldOfView>
+        <FieldOfView>10</FieldOfView>
         <Eye>
-          <X>0</X>
+          <X>-2</X>
           <Y>0</Y>
           <Z>0</Z>
         </Eye>
@@ -3001,7 +3088,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
         <ScaleX>1</ScaleX>
         <ScaleY>1</ScaleY>
         <ScaleZ>1</ScaleZ>
-        <MeshName>SphereMapping</MeshName>
+        <MeshName>ParabolicScreen</MeshName>
         <Ambient>
           <X>1</X>
           <Y>1</Y>
@@ -3018,14 +3105,14 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
           <Z>0</Z>
         </Specular>
         <SpecularExponent>0.1</SpecularExponent>
-        <RotationZ>0</RotationZ>
-        <RotationY>0</RotationY>
+        <RotationZ>90</RotationZ>
+        <RotationY>90</RotationY>
         <RotationX>0</RotationX>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:RenderTexture">
           <gl:RenderState />
-          <gl:ClearColor>Black</gl:ClearColor>
+          <gl:ClearColor>IndianRed</gl:ClearColor>
           <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
           <gl:Width>2048</gl:Width>
           <gl:Height>2048</gl:Height>
@@ -3097,26 +3184,24 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
       <Edge From="15" To="16" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
       <Edge From="17" To="18" Label="Source1" />
-      <Edge From="18" To="19" Label="Source1" />
-      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
       <Edge From="26" To="27" Label="Source1" />
       <Edge From="28" To="29" Label="Source1" />
-      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
       <Edge From="31" To="32" Label="Source1" />
-      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="32" To="33" Label="Source1" />
       <Edge From="34" To="35" Label="Source1" />
+      <Edge From="35" To="36" Label="Source1" />
       <Edge From="36" To="37" Label="Source1" />
       <Edge From="37" To="38" Label="Source1" />
       <Edge From="38" To="39" Label="Source1" />
-      <Edge From="39" To="40" Label="Source1" />
       <Edge From="40" To="41" Label="Source1" />
+      <Edge From="41" To="42" Label="Source1" />
       <Edge From="42" To="43" Label="Source1" />
       <Edge From="43" To="44" Label="Source1" />
       <Edge From="44" To="45" Label="Source1" />
       <Edge From="45" To="46" Label="Source1" />
       <Edge From="46" To="47" Label="Source1" />
-      <Edge From="47" To="48" Label="Source1" />
-      <Edge From="48" To="49" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
