@@ -21,8 +21,8 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:DeviceTCPClient">
-          <p1:Port>1234</p1:Port>
-          <p1:IPAddress>localhost</p1:IPAddress>
+          <p1:Port>3336</p1:Port>
+          <p1:IPAddress>192.168.5.16</p1:IPAddress>
         </Combinator>
       </Expression>
       <Expression xsi:type="PublishSubject">
@@ -30,20 +30,26 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>Space</wie:Filter>
+          <wie:Filter>O</wie:Filter>
+          <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\BankOdorCommand.bonsai">
+        <ValveIndex>6</ValveIndex>
+        <BankIndex>Bank8</BankIndex>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>OlfactometerCommands</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>F</wie:Filter>
           <wie:SuppressRepetitions>true</wie:SuppressRepetitions>
         </Combinator>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\BankFlowCommand.bonsai">
         <BankIndex>Bank8</BankIndex>
-        <FlowRate>50</FlowRate>
-      </Expression>
-      <Expression xsi:type="MulticastSubject">
-        <Name>OlfactometerCommands</Name>
-      </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\BankOdorCommand.bonsai">
-        <BankIndex>Bank8</BankIndex>
-        <FlowRate>50</FlowRate>
+        <FlowRate>10</FlowRate>
       </Expression>
       <Expression xsi:type="MulticastSubject">
         <Name>OlfactometerCommands</Name>
@@ -55,9 +61,9 @@
       <Edge From="3" To="4" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
-      <Edge From="6" To="9" Label="Source1" />
       <Edge From="7" To="8" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

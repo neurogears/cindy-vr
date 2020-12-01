@@ -35,9 +35,14 @@ public class DeviceTCPClient
             {
                 var stream = client.GetStream();
                 var reader = new StreamReader(stream, Encoding.ASCII);
-                var writer = new StreamWriter(stream, Encoding.ASCII) { NewLine = "\n" };
+                var writer = stream;
+                //new StreamWriter(stream, Encoding.ASCII) { NewLine = "\n\r" };
                 var readAsync = Observable.FromAsync(reader.ReadLineAsync).Repeat();
-                return source.Do(writer.WriteLine).IgnoreElements().Merge(readAsync);
+                return source.Do( s=>
+                    {
+                        Byte[] data = System.Text.Encoding.ASCII.GetBytes(s+"\n");
+                        writer.Write(data,0,data.Length);
+                    }).IgnoreElements().Merge(readAsync);
             });
     }
 }
