@@ -99,6 +99,15 @@
               <gl:FragmentShader>Shaders\colorShader.frag</gl:FragmentShader>
             </gl:ShaderConfiguration>
             <gl:ShaderConfiguration xsi:type="gl:Material">
+              <gl:Name>TileModel</gl:Name>
+              <gl:RenderState />
+              <gl:ShaderUniforms />
+              <gl:BufferBindings />
+              <gl:FramebufferAttachments />
+              <gl:VertexShader>Shaders\ShaderModel.vert</gl:VertexShader>
+              <gl:FragmentShader>Shaders\TileShader.frag</gl:FragmentShader>
+            </gl:ShaderConfiguration>
+            <gl:ShaderConfiguration xsi:type="gl:Material">
               <gl:Name>WarpOutput</gl:Name>
               <gl:RenderState />
               <gl:ShaderUniforms />
@@ -644,7 +653,7 @@ Item3 as Light)</scr:Expression>
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="gl:Scale,sys:Single">
               <MemberName>ScaleY</MemberName>
-              <Value>20</Value>
+              <Value>9</Value>
             </Expression>
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>-it/2</scr:Expression>
@@ -695,227 +704,34 @@ Item3 as Light)</scr:Expression>
                       <gl:TextureTarget>Texture2D</gl:TextureTarget>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="GroupWorkflow">
-                    <Name>DrawStripeModel</Name>
-                    <Description>Draws a textured and transformed 3D model stimulus.</Description>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>ViewMatrix</Selector>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="X" DisplayName="TranslationX" />
-                          <Property Name="Y" DisplayName="TranslationY" />
-                          <Property Name="Z" DisplayName="TranslationZ" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:Translate">
-                            <gl:Order>Prepend</gl:Order>
-                            <gl:X>0</gl:X>
-                            <gl:Y>-3</gl:Y>
-                            <gl:Z>-450</gl:Z>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="X" DisplayName="ScaleX" />
-                          <Property Name="Y" DisplayName="ScaleY" />
-                          <Property Name="Z" DisplayName="ScaleZ" />
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="RotationZ" Description="The rotation about the z-axis." />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="bv:AngleProperty">
-                            <bv:Value>0</bv:Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="Angle" />
-                          </PropertyMappings>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:RotateZ">
-                            <gl:Order>Prepend</gl:Order>
-                            <gl:Angle>0</gl:Angle>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="RotationY" Description="The rotation about the y-axis." />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="bv:AngleProperty">
-                            <bv:Value>0</bv:Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="Angle" />
-                          </PropertyMappings>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:RotateY">
-                            <gl:Order>Prepend</gl:Order>
-                            <gl:Angle>0</gl:Angle>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="RotationX" Description="The rotation about the x-axis." />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="bv:AngleProperty">
-                            <bv:Value>90</bv:Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="Angle" />
-                          </PropertyMappings>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:RotateX">
-                            <gl:Order>Prepend</gl:Order>
-                            <gl:Angle>1.57079637</gl:Angle>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:Scale">
-                            <gl:Order>Prepend</gl:Order>
-                            <gl:X>20</gl:X>
-                            <gl:Y>900</gl:Y>
-                            <gl:Z>0</gl:Z>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="ShaderName" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:UpdateUniform">
-                            <gl:UniformName>modelview</gl:UniformName>
-                            <gl:ShaderName>ColorModel</gl:ShaderName>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>ProjectionMatrix</Selector>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="MeshName" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:UpdateUniform">
-                            <gl:UniformName>projection</gl:UniformName>
-                            <gl:ShaderName>ColorModel</gl:ShaderName>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Zip" />
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="Scale" />
-                        </Expression>
-                        <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix2,p1:Vector2">
-                          <MemberName>Row1</MemberName>
-                          <Value>
-                            <X>1</X>
-                            <Y>1</Y>
-                          </Value>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:UpdateUniform">
-                            <gl:UniformName>scale</gl:UniformName>
-                            <gl:ShaderName>ColorModel</gl:ShaderName>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="Color" />
-                        </Expression>
-                        <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix4,p1:Vector4">
-                          <MemberName>Row0</MemberName>
-                          <Value>
-                            <X>0</X>
-                            <Y>0</Y>
-                            <Z>0</Z>
-                            <W>1</W>
-                          </Value>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:UpdateUniform">
-                            <gl:UniformName>color</gl:UniformName>
-                            <gl:ShaderName>ColorModel</gl:ShaderName>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="BackColor" />
-                        </Expression>
-                        <Expression xsi:type="PropertySource" TypeArguments="gl:CreateMatrix4,p1:Vector4">
-                          <MemberName>Row0</MemberName>
-                          <Value>
-                            <X>1</X>
-                            <Y>1</Y>
-                            <Z>1</Z>
-                            <W>1</W>
-                          </Value>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:UpdateUniform">
-                            <gl:UniformName>backColor</gl:UniformName>
-                            <gl:ShaderName>ColorModel</gl:ShaderName>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="gl:DrawMesh">
-                            <gl:ShaderName>ColorModel</gl:ShaderName>
-                            <gl:MeshName>Plane</gl:MeshName>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="20" Label="Source1" />
-                        <Edge From="1" To="3" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source2" />
-                        <Edge From="3" To="8" Label="Source1" />
-                        <Edge From="4" To="17" Label="Source2" />
-                        <Edge From="5" To="6" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source1" />
-                        <Edge From="7" To="8" Label="Source2" />
-                        <Edge From="8" To="12" Label="Source1" />
-                        <Edge From="9" To="10" Label="Source1" />
-                        <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="12" Label="Source2" />
-                        <Edge From="12" To="16" Label="Source1" />
-                        <Edge From="13" To="14" Label="Source1" />
-                        <Edge From="14" To="15" Label="Source1" />
-                        <Edge From="15" To="16" Label="Source2" />
-                        <Edge From="16" To="17" Label="Source1" />
-                        <Edge From="17" To="19" Label="Source1" />
-                        <Edge From="18" To="19" Label="Source2" />
-                        <Edge From="18" To="33" Label="Source2" />
-                        <Edge From="18" To="22" Label="Source2" />
-                        <Edge From="18" To="26" Label="Source2" />
-                        <Edge From="18" To="29" Label="Source2" />
-                        <Edge From="18" To="32" Label="Source2" />
-                        <Edge From="19" To="23" Label="Source1" />
-                        <Edge From="20" To="22" Label="Source1" />
-                        <Edge From="21" To="33" Label="Source3" />
-                        <Edge From="22" To="23" Label="Source2" />
-                        <Edge From="23" To="25" Label="Source1" />
-                        <Edge From="24" To="25" Label="Source2" />
-                        <Edge From="25" To="26" Label="Source1" />
-                        <Edge From="26" To="28" Label="Source1" />
-                        <Edge From="27" To="28" Label="Source2" />
-                        <Edge From="28" To="29" Label="Source1" />
-                        <Edge From="29" To="31" Label="Source1" />
-                        <Edge From="30" To="31" Label="Source2" />
-                        <Edge From="31" To="32" Label="Source1" />
-                        <Edge From="32" To="33" Label="Source1" />
-                        <Edge From="33" To="34" Label="Source1" />
-                      </Edges>
-                    </Workflow>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawStripeModel.bonsai">
+                    <TranslationX>0</TranslationX>
+                    <TranslationY>-3</TranslationY>
+                    <TranslationZ>-183.5</TranslationZ>
+                    <ScaleX>9</ScaleX>
+                    <ScaleY>900</ScaleY>
+                    <ScaleZ>0</ScaleZ>
+                    <RotationZ>0</RotationZ>
+                    <RotationY>0</RotationY>
+                    <RotationX>90</RotationX>
+                    <ShaderName>ColorModel</ShaderName>
+                    <MeshName>Plane</MeshName>
+                    <Scale>
+                      <X>1</X>
+                      <Y>1</Y>
+                    </Scale>
+                    <Color>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </Color>
+                    <BackColor>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>1</Z>
+                      <W>1</W>
+                    </BackColor>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
@@ -981,11 +797,11 @@ Item3 as Light)</scr:Expression>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                          <TranslationX>-10</TranslationX>
-                          <TranslationY>3</TranslationY>
-                          <TranslationZ>-450</TranslationZ>
+                          <TranslationX>-4.5</TranslationX>
+                          <TranslationY>0.5</TranslationY>
+                          <TranslationZ>-183.5</TranslationZ>
                           <ScaleX>100</ScaleX>
-                          <ScaleY>12.0001</ScaleY>
+                          <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
                           <Ambient>
@@ -1056,11 +872,11 @@ Item3 as Light)</scr:Expression>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
-                          <TranslationX>-10</TranslationX>
-                          <TranslationY>3</TranslationY>
-                          <TranslationZ>-700</TranslationZ>
+                          <TranslationX>-4.5</TranslationX>
+                          <TranslationY>0.5</TranslationY>
+                          <TranslationZ>-433.5</TranslationZ>
                           <ScaleX>400</ScaleX>
-                          <ScaleY>12</ScaleY>
+                          <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <RotationZ>0</RotationZ>
                           <RotationY>90</RotationY>
@@ -1133,11 +949,11 @@ Item3 as Light)</scr:Expression>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
-                          <TranslationX>-10</TranslationX>
-                          <TranslationY>3</TranslationY>
-                          <TranslationZ>-200</TranslationZ>
+                          <TranslationX>-4.5</TranslationX>
+                          <TranslationY>0.5</TranslationY>
+                          <TranslationZ>66.5</TranslationZ>
                           <ScaleX>400</ScaleX>
-                          <ScaleY>12</ScaleY>
+                          <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <RotationZ>0</RotationZ>
                           <RotationY>90</RotationY>
@@ -1249,11 +1065,11 @@ Item3 as Light)</scr:Expression>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-                          <TranslationX>10</TranslationX>
-                          <TranslationY>3</TranslationY>
-                          <TranslationZ>-450</TranslationZ>
+                          <TranslationX>4.5</TranslationX>
+                          <TranslationY>0.5</TranslationY>
+                          <TranslationZ>-183.5</TranslationZ>
                           <ScaleX>100</ScaleX>
-                          <ScaleY>12.0001</ScaleY>
+                          <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <MeshName>Plane</MeshName>
                           <Ambient>
@@ -1324,11 +1140,11 @@ Item3 as Light)</scr:Expression>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
-                          <TranslationX>10</TranslationX>
-                          <TranslationY>3</TranslationY>
-                          <TranslationZ>-700</TranslationZ>
+                          <TranslationX>4.5</TranslationX>
+                          <TranslationY>0.5</TranslationY>
+                          <TranslationZ>-433.5</TranslationZ>
                           <ScaleX>400</ScaleX>
-                          <ScaleY>12.0001</ScaleY>
+                          <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <RotationZ>0</RotationZ>
                           <RotationY>90</RotationY>
@@ -1401,11 +1217,11 @@ Item3 as Light)</scr:Expression>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
-                          <TranslationX>10</TranslationX>
-                          <TranslationY>3</TranslationY>
-                          <TranslationZ>-200</TranslationZ>
+                          <TranslationX>4.5</TranslationX>
+                          <TranslationY>0.5</TranslationY>
+                          <TranslationZ>66.5</TranslationZ>
                           <ScaleX>400</ScaleX>
-                          <ScaleY>12.0001</ScaleY>
+                          <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
                           <RotationZ>0</RotationZ>
                           <RotationY>90</RotationY>
@@ -1464,6 +1280,279 @@ Item3 as Light)</scr:Expression>
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>Towers</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>it+450-70-160-150</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="ScaleY" />
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="TranslationY" />
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="TranslationX" />
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\Tower.bonsai">
+                    <frequency>
+                      <X>1</X>
+                      <Y>8</Y>
+                    </frequency>
+                    <RotationZ>0</RotationZ>
+                    <RotationX>0</RotationX>
+                    <ScaleY>66</ScaleY>
+                    <Color>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </Color>
+                    <BackColor>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>1</Z>
+                      <W>1</W>
+                    </BackColor>
+                    <ShaderName>TileModel</ShaderName>
+                    <TextureName>fwn3</TextureName>
+                    <TranslationY>30</TranslationY>
+                    <TranslationX>10.56</TranslationX>
+                    <TranslationZ>-113.5</TranslationZ>
+                    <ScaleX>12</ScaleX>
+                    <RotationY>1.57079637</RotationY>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>it+450-70-160</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\Tower.bonsai">
+                    <frequency>
+                      <X>8</X>
+                      <Y>1</Y>
+                    </frequency>
+                    <RotationZ>0</RotationZ>
+                    <RotationX>0</RotationX>
+                    <ScaleY>66</ScaleY>
+                    <Color>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </Color>
+                    <BackColor>
+                      <X>0</X>
+                      <Y>1</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </BackColor>
+                    <ShaderName>TileModel</ShaderName>
+                    <TextureName>fwn3</TextureName>
+                    <TranslationY>30</TranslationY>
+                    <TranslationX>10.56</TranslationX>
+                    <TranslationZ>36.5</TranslationZ>
+                    <ScaleX>12</ScaleX>
+                    <RotationY>1.57079637</RotationY>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>it+450-70</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\Tower.bonsai">
+                    <frequency>
+                      <X>2</X>
+                      <Y>8</Y>
+                    </frequency>
+                    <RotationZ>0</RotationZ>
+                    <RotationX>0</RotationX>
+                    <ScaleY>66</ScaleY>
+                    <Color>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </Color>
+                    <BackColor>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>1</Z>
+                      <W>1</W>
+                    </BackColor>
+                    <ShaderName>TileModel</ShaderName>
+                    <TextureName>fwn3</TextureName>
+                    <TranslationY>30</TranslationY>
+                    <TranslationX>10.56</TranslationX>
+                    <TranslationZ>196.5</TranslationZ>
+                    <ScaleX>12</ScaleX>
+                    <RotationY>1.57079637</RotationY>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>it-50-70-160-150</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\Tower.bonsai">
+                    <frequency>
+                      <X>1</X>
+                      <Y>8</Y>
+                    </frequency>
+                    <RotationZ>0</RotationZ>
+                    <RotationX>0</RotationX>
+                    <ScaleY>66</ScaleY>
+                    <Color>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </Color>
+                    <BackColor>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>1</Z>
+                      <W>1</W>
+                    </BackColor>
+                    <ShaderName>TileModel</ShaderName>
+                    <TextureName>fwn3</TextureName>
+                    <TranslationY>30</TranslationY>
+                    <TranslationX>10.56</TranslationX>
+                    <TranslationZ>-613.5</TranslationZ>
+                    <ScaleX>12</ScaleX>
+                    <RotationY>1.57079637</RotationY>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>it-50-70-160</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\Tower.bonsai">
+                    <frequency>
+                      <X>8</X>
+                      <Y>1</Y>
+                    </frequency>
+                    <RotationZ>0</RotationZ>
+                    <RotationX>0</RotationX>
+                    <ScaleY>66</ScaleY>
+                    <Color>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </Color>
+                    <BackColor>
+                      <X>0</X>
+                      <Y>1</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </BackColor>
+                    <ShaderName>TileModel</ShaderName>
+                    <TextureName>fwn3</TextureName>
+                    <TranslationY>30</TranslationY>
+                    <TranslationX>10.56</TranslationX>
+                    <TranslationZ>-463.5</TranslationZ>
+                    <ScaleX>12</ScaleX>
+                    <RotationY>1.57079637</RotationY>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>it-50-70</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="TranslationZ" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\Tower.bonsai">
+                    <frequency>
+                      <X>2</X>
+                      <Y>8</Y>
+                    </frequency>
+                    <RotationZ>0</RotationZ>
+                    <RotationX>0</RotationX>
+                    <ScaleY>66</ScaleY>
+                    <Color>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <W>1</W>
+                    </Color>
+                    <BackColor>
+                      <X>1</X>
+                      <Y>1</Y>
+                      <Z>1</Z>
+                      <W>1</W>
+                    </BackColor>
+                    <ShaderName>TileModel</ShaderName>
+                    <TextureName>fwn3</TextureName>
+                    <TranslationY>30</TranslationY>
+                    <TranslationX>10.56</TranslationX>
+                    <TranslationZ>-303.5</TranslationZ>
+                    <ScaleX>12</ScaleX>
+                    <RotationY>1.57079637</RotationY>
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="0" To="7" Label="Source1" />
+                  <Edge From="0" To="10" Label="Source1" />
+                  <Edge From="0" To="13" Label="Source1" />
+                  <Edge From="0" To="16" Label="Source1" />
+                  <Edge From="0" To="19" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="6" Label="Source1" />
+                  <Edge From="3" To="12" Label="Source2" />
+                  <Edge From="3" To="9" Label="Source2" />
+                  <Edge From="3" To="6" Label="Source2" />
+                  <Edge From="3" To="15" Label="Source2" />
+                  <Edge From="3" To="18" Label="Source2" />
+                  <Edge From="3" To="21" Label="Source2" />
+                  <Edge From="4" To="12" Label="Source3" />
+                  <Edge From="4" To="9" Label="Source3" />
+                  <Edge From="4" To="6" Label="Source3" />
+                  <Edge From="4" To="15" Label="Source3" />
+                  <Edge From="4" To="18" Label="Source3" />
+                  <Edge From="4" To="21" Label="Source3" />
+                  <Edge From="5" To="12" Label="Source4" />
+                  <Edge From="5" To="9" Label="Source4" />
+                  <Edge From="5" To="6" Label="Source4" />
+                  <Edge From="5" To="15" Label="Source4" />
+                  <Edge From="5" To="18" Label="Source4" />
+                  <Edge From="5" To="21" Label="Source4" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source1" />
+                  <Edge From="14" To="15" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source1" />
+                  <Edge From="17" To="18" Label="Source1" />
+                  <Edge From="19" To="20" Label="Source1" />
+                  <Edge From="20" To="21" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="2" Label="Source1" />
@@ -1471,6 +1560,7 @@ Item3 as Light)</scr:Expression>
             <Edge From="2" To="3" Label="Source1" />
             <Edge From="2" To="13" Label="Source1" />
             <Edge From="2" To="14" Label="Source1" />
+            <Edge From="2" To="15" Label="Source1" />
             <Edge From="3" To="12" Label="Source1" />
             <Edge From="4" To="13" Label="Source2" />
             <Edge From="4" To="14" Label="Source2" />
@@ -3380,8 +3470,8 @@ Item3 as Light)</scr:Expression>
           <gl:RenderState />
           <gl:ClearColor>IndianRed</gl:ClearColor>
           <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
-          <gl:Width>2048</gl:Width>
-          <gl:Height>2048</gl:Height>
+          <gl:Width>4096</gl:Width>
+          <gl:Height>4096</gl:Height>
           <gl:InternalFormat>Rgba</gl:InternalFormat>
           <gl:WrapS>Repeat</gl:WrapS>
           <gl:WrapT>Repeat</gl:WrapT>
