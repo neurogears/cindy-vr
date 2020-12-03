@@ -28,7 +28,7 @@
           <gl:CursorVisible>true</gl:CursorVisible>
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
-          <gl:WindowState>Normal</gl:WindowState>
+          <gl:WindowState>Fullscreen</gl:WindowState>
           <gl:DisplayDevice>Second</gl:DisplayDevice>
           <gl:TargetRenderFrequency>0</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
@@ -707,7 +707,7 @@ Item3 as Light)</scr:Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawStripeModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-3</TranslationY>
-                    <TranslationZ>-183.5</TranslationZ>
+                    <TranslationZ>-446.302124</TranslationZ>
                     <ScaleX>9</ScaleX>
                     <ScaleY>900</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -799,7 +799,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-183.5</TranslationZ>
+                          <TranslationZ>-446.302124</TranslationZ>
                           <ScaleX>100</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -874,7 +874,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>-4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-433.5</TranslationZ>
+                          <TranslationZ>-696.3021</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -951,7 +951,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>-4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>66.5</TranslationZ>
+                          <TranslationZ>-196.302124</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1067,7 +1067,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-183.5</TranslationZ>
+                          <TranslationZ>-446.302124</TranslationZ>
                           <ScaleX>100</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1142,7 +1142,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-433.5</TranslationZ>
+                          <TranslationZ>-696.3021</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1219,7 +1219,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>66.5</TranslationZ>
+                          <TranslationZ>-196.302124</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1328,7 +1328,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-113.5</TranslationZ>
+                    <TranslationZ>-376.302124</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1364,7 +1364,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>36.5</TranslationZ>
+                    <TranslationZ>-226.302124</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1400,7 +1400,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>196.5</TranslationZ>
+                    <TranslationZ>-66.302124</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1436,7 +1436,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-613.5</TranslationZ>
+                    <TranslationZ>-876.3021</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1472,7 +1472,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-463.5</TranslationZ>
+                    <TranslationZ>-726.3021</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1508,7 +1508,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-303.5</TranslationZ>
+                    <TranslationZ>-566.3021</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -2918,13 +2918,11 @@ Item3 as Light)</scr:Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>OlfactometerCommands</Name>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p2:DeviceTCPClient">
-            <p2:Port>1234</p2:Port>
-            <p2:IPAddress>localhost</p2:IPAddress>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p2:DeviceTCPClient">
+          <p2:Port>3336</p2:Port>
+          <p2:IPAddress>192.168.5.16</p2:IPAddress>
+        </Combinator>
       </Expression>
       <Expression xsi:type="PublishSubject">
         <Name>OlfactometerEvents</Name>
@@ -3023,92 +3021,33 @@ Item3 as Light)</scr:Expression>
           </Workflow>
         </Builder>
       </Expression>
-      <Expression xsi:type="GroupWorkflow">
-        <Name>MouseEncoder</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gli:MouseCursor" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>WheelPrecise</Selector>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Take">
-                <rx:Count>1</rx:Count>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:CombineLatest" />
-            </Expression>
-            <Expression xsi:type="Subtract" />
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="Gain" />
-            </Expression>
-            <Expression xsi:type="Multiply">
-              <Operand xsi:type="DoubleProperty">
-                <Value>0.5</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="MulticastSubject">
-              <Name>Encoder</Name>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="1" To="3" Label="Source1" />
-            <Edge From="2" To="3" Label="Source2" />
-            <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="6" Label="Source1" />
-            <Edge From="5" To="6" Label="Source2" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
-          </Edges>
-        </Workflow>
-      </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="GroupWorkflow">
-          <Name>HarpEncoder</Name>
+          <Name>MouseEncoder</Name>
           <Workflow>
             <Nodes>
               <Expression xsi:type="Combinator">
-                <Combinator xsi:type="harp:Device">
-                  <harp:PortName>COM12</harp:PortName>
-                  <harp:DeviceState>Active</harp:DeviceState>
-                  <harp:DumpRegisters>true</harp:DumpRegisters>
-                  <harp:LedState>On</harp:LedState>
-                  <harp:VisualIndicators>On</harp:VisualIndicators>
-                  <harp:Heartbeat>Disable</harp:Heartbeat>
-                  <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                </Combinator>
+                <Combinator xsi:type="gli:MouseCursor" />
               </Expression>
-              <Expression xsi:type="p3:BehaviorEvent">
-                <p3:Type>AnalogInput</p3:Type>
-                <p3:Mask>Port0</p3:Mask>
-              </Expression>
-              <Expression xsi:type="Disable">
-                <Builder xsi:type="io:CsvWriter">
-                  <io:FileName>Data\EncoderTestData5v.csv</io:FileName>
-                  <io:Append>false</io:Append>
-                  <io:Overwrite>false</io:Overwrite>
-                  <io:Suffix>FileCount</io:Suffix>
-                  <io:IncludeHeader>false</io:IncludeHeader>
-                </Builder>
-              </Expression>
-              <Expression xsi:type="IncludeWorkflow" Path="Extensions\TurnPositionCalculation.bonsai" />
-              <Expression xsi:type="ExternalizedMapping">
-                <Property Name="RangeMax" DisplayName="WheelPerimeter" />
+              <Expression xsi:type="MemberSelector">
+                <Selector>WheelPrecise</Selector>
               </Expression>
               <Expression xsi:type="Combinator">
-                <Combinator xsi:type="dsp:Rescale">
-                  <dsp:Min>0</dsp:Min>
-                  <dsp:Max>5</dsp:Max>
-                  <dsp:RangeMin>0</dsp:RangeMin>
-                  <dsp:RangeMax>62</dsp:RangeMax>
-                  <dsp:RescaleType>Linear</dsp:RescaleType>
+                <Combinator xsi:type="rx:Take">
+                  <rx:Count>1</rx:Count>
                 </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:CombineLatest" />
+              </Expression>
+              <Expression xsi:type="Subtract" />
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Value" DisplayName="Gain" />
+              </Expression>
+              <Expression xsi:type="Multiply">
+                <Operand xsi:type="DoubleProperty">
+                  <Value>0.5</Value>
+                </Operand>
               </Expression>
               <Expression xsi:type="MulticastSubject">
                 <Name>Encoder</Name>
@@ -3118,14 +3057,73 @@ Item3 as Light)</scr:Expression>
             <Edges>
               <Edge From="0" To="1" Label="Source1" />
               <Edge From="1" To="2" Label="Source1" />
-              <Edge From="2" To="3" Label="Source1" />
-              <Edge From="3" To="5" Label="Source1" />
-              <Edge From="4" To="5" Label="Source2" />
-              <Edge From="5" To="6" Label="Source1" />
+              <Edge From="1" To="3" Label="Source1" />
+              <Edge From="2" To="3" Label="Source2" />
+              <Edge From="3" To="4" Label="Source1" />
+              <Edge From="4" To="6" Label="Source1" />
+              <Edge From="5" To="6" Label="Source2" />
               <Edge From="6" To="7" Label="Source1" />
+              <Edge From="7" To="8" Label="Source1" />
             </Edges>
           </Workflow>
         </Builder>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>HarpEncoder</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="harp:Device">
+                <harp:PortName>COM3</harp:PortName>
+                <harp:DeviceState>Active</harp:DeviceState>
+                <harp:DumpRegisters>true</harp:DumpRegisters>
+                <harp:LedState>On</harp:LedState>
+                <harp:VisualIndicators>On</harp:VisualIndicators>
+                <harp:Heartbeat>Disable</harp:Heartbeat>
+                <harp:IgnoreErrors>false</harp:IgnoreErrors>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="p3:BehaviorEvent">
+              <p3:Type>AnalogInput</p3:Type>
+              <p3:Mask>Port0</p3:Mask>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="io:CsvWriter">
+                <io:FileName>Data\EncoderTestData5v.csv</io:FileName>
+                <io:Append>false</io:Append>
+                <io:Overwrite>false</io:Overwrite>
+                <io:Suffix>FileCount</io:Suffix>
+                <io:IncludeHeader>false</io:IncludeHeader>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\TurnPositionCalculation.bonsai" />
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="RangeMax" DisplayName="WheelPerimeter" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:Rescale">
+                <dsp:Min>0</dsp:Min>
+                <dsp:Max>5</dsp:Max>
+                <dsp:RangeMin>0</dsp:RangeMin>
+                <dsp:RangeMax>62</dsp:RangeMax>
+                <dsp:RescaleType>Linear</dsp:RescaleType>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>Encoder</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="5" Label="Source1" />
+            <Edge From="4" To="5" Label="Source2" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
@@ -3140,10 +3138,19 @@ Item3 as Light)</scr:Expression>
             <Expression xsi:type="WorkflowInput">
               <Name>Source1</Name>
             </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\BankFlowCommand.bonsai">
+              <BankIndex>Bank8</BankIndex>
+              <FlowRate>100</FlowRate>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>OlfactometerCommands</Name>
+            </Expression>
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -3349,9 +3356,9 @@ Item3 as Light)</scr:Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>z pos</Name>
             </Expression>
-            <Expression xsi:type="GreaterThan">
+            <Expression xsi:type="GreaterThanOrEqual">
               <Operand xsi:type="FloatProperty">
-                <Value>300</Value>
+                <Value>200</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3370,12 +3377,67 @@ Item3 as Light)</scr:Expression>
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="Format">
-              <Format>teste {0}</Format>
-              <Selector>it</Selector>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\BankOdorCommand.bonsai">
+              <ValveIndex>6</ValveIndex>
+              <BankIndex>Bank8</BankIndex>
             </Expression>
             <Expression xsi:type="MulticastSubject">
               <Name>OlfactometerCommands</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Delay">
+                <rx:DueTime>PT0.5S</rx:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\BankOdorCommand.bonsai">
+              <ValveIndex>0</ValveIndex>
+              <BankIndex>Bank8</BankIndex>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>OlfactometerCommands</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>z pos</Name>
+            </Expression>
+            <Expression xsi:type="GreaterThanOrEqual">
+              <Operand xsi:type="FloatProperty">
+                <Value>100</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:DistinctUntilChanged" />
+            </Expression>
+            <Expression xsi:type="Condition">
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="p3:BehaviorCommand">
+              <p3:Type>SetOutput</p3:Type>
+              <p3:Mask>Digital0</p3:Mask>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>BehaviorCommandBoardA</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Delay">
+                <rx:DueTime>PT0.2S</rx:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="p3:BehaviorCommand">
+              <p3:Type>ClearOutput</p3:Type>
+              <p3:Mask>Digital0</p3:Mask>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>BehaviorCommandBoardA</Name>
             </Expression>
           </Nodes>
           <Edges>
@@ -3387,6 +3449,17 @@ Item3 as Light)</scr:Expression>
             <Edge From="7" To="8" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -3521,6 +3594,23 @@ Item3 as Light)</scr:Expression>
           <gl:MeshName>WarpQuad</gl:MeshName>
         </Combinator>
       </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>BehaviorCommandBoardA</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:Device">
+          <harp:PortName>COM9</harp:PortName>
+          <harp:DeviceState>Active</harp:DeviceState>
+          <harp:DumpRegisters>true</harp:DumpRegisters>
+          <harp:LedState>On</harp:LedState>
+          <harp:VisualIndicators>On</harp:VisualIndicators>
+          <harp:Heartbeat>Disable</harp:Heartbeat>
+          <harp:IgnoreErrors>false</harp:IgnoreErrors>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:CommandSubject.bonsai">
+        <Name>BehaviorCommandBoardA</Name>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -3561,6 +3651,7 @@ Item3 as Light)</scr:Expression>
       <Edge From="51" To="52" Label="Source1" />
       <Edge From="52" To="53" Label="Source1" />
       <Edge From="53" To="54" Label="Source1" />
+      <Edge From="55" To="56" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
