@@ -257,18 +257,14 @@
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>false</Visible>
     <Location>
-      <X>130</X>
-      <Y>130</Y>
+      <X>0</X>
+      <Y>0</Y>
     </Location>
     <Size>
-      <Width>336</Width>
-      <Height>65</Height>
+      <Width>0</Width>
+      <Height>0</Height>
     </Size>
     <WindowState>Normal</WindowState>
-    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
-    <VisualizerSettings>
-      <ObjectTextVisualizer />
-    </VisualizerSettings>
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
@@ -276,8 +272,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>610</Width>
-        <Height>591</Height>
+        <Width>866</Width>
+        <Height>847</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -540,8 +536,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>610</Width>
-        <Height>591</Height>
+        <Width>460</Width>
+        <Height>847</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -608,12 +604,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>-8</X>
-        <Y>-8</Y>
+        <X>5</X>
+        <Y>124</Y>
       </Location>
       <Size>
-        <Width>551</Width>
-        <Height>477</Height>
+        <Width>754</Width>
+        <Height>574</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -630,7 +626,7 @@
     </Size>
     <WindowState>Normal</WindowState>
   </DialogSettings>
-  <DialogSettings>
+  <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>false</Visible>
     <Location>
       <X>0</X>
@@ -641,6 +637,18 @@
       <Height>0</Height>
     </Size>
     <WindowState>Normal</WindowState>
+    <EditorDialogSettings>
+      <Visible>false</Visible>
+      <Location>
+        <X>78</X>
+        <Y>78</Y>
+      </Location>
+      <Size>
+        <Width>316</Width>
+        <Height>239</Height>
+      </Size>
+      <WindowState>Normal</WindowState>
+    </EditorDialogSettings>
   </DialogSettings>
   <DialogSettings>
     <Visible>false</Visible>

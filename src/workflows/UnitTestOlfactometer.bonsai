@@ -49,7 +49,7 @@
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\BankFlowCommand.bonsai">
         <BankIndex>Bank8</BankIndex>
-        <FlowRate>10</FlowRate>
+        <FlowRate>20</FlowRate>
       </Expression>
       <Expression xsi:type="MulticastSubject">
         <Name>OlfactometerCommands</Name>
