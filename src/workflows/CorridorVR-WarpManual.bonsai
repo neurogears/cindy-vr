@@ -14,6 +14,9 @@
                  xmlns:gli="clr-namespace:Bonsai.Shaders.Input;assembly=Bonsai.Shaders"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:p3="clr-namespace:Bonsai.Harp.CF;assembly=Bonsai.Harp.CF"
+                 xmlns:p4="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -28,8 +31,8 @@
           <gl:CursorVisible>true</gl:CursorVisible>
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
-          <gl:WindowState>Normal</gl:WindowState>
-          <gl:DisplayDevice>Primary</gl:DisplayDevice>
+          <gl:WindowState>Fullscreen</gl:WindowState>
+          <gl:DisplayDevice>Second</gl:DisplayDevice>
           <gl:TargetRenderFrequency>0</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
           <gl:RenderState />
@@ -707,7 +710,7 @@ Item3 as Light)</scr:Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawStripeModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-3</TranslationY>
-                    <TranslationZ>-426.22345</TranslationZ>
+                    <TranslationZ>-432.2132</TranslationZ>
                     <ScaleX>9</ScaleX>
                     <ScaleY>900</ScaleY>
                     <ScaleZ>0</ScaleZ>
@@ -799,7 +802,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>-4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-426.22345</TranslationZ>
+                          <TranslationZ>-432.2132</TranslationZ>
                           <ScaleX>100</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -874,7 +877,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>-4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-676.22345</TranslationZ>
+                          <TranslationZ>-682.2132</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -951,7 +954,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>-4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-176.22345</TranslationZ>
+                          <TranslationZ>-182.2132</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1067,7 +1070,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                           <TranslationX>4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-426.22345</TranslationZ>
+                          <TranslationZ>-432.2132</TranslationZ>
                           <ScaleX>100</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1142,7 +1145,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-676.22345</TranslationZ>
+                          <TranslationZ>-682.2132</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1219,7 +1222,7 @@ Item3 as Light)</scr:Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="Extensions\DrawShaderModel.bonsai">
                           <TranslationX>4.5</TranslationX>
                           <TranslationY>0.5</TranslationY>
-                          <TranslationZ>-176.22345</TranslationZ>
+                          <TranslationZ>-182.2132</TranslationZ>
                           <ScaleX>400</ScaleX>
                           <ScaleY>7</ScaleY>
                           <ScaleZ>0</ScaleZ>
@@ -1328,7 +1331,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-356.22345</TranslationZ>
+                    <TranslationZ>-362.2132</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1364,7 +1367,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-206.22345</TranslationZ>
+                    <TranslationZ>-212.2132</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1400,7 +1403,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-46.2232666</TranslationZ>
+                    <TranslationZ>-52.2131958</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1436,7 +1439,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-856.223267</TranslationZ>
+                    <TranslationZ>-862.2132</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1472,7 +1475,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-706.223267</TranslationZ>
+                    <TranslationZ>-712.2132</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -1508,7 +1511,7 @@ Item3 as Light)</scr:Expression>
                     <TextureName>fwn3</TextureName>
                     <TranslationY>30</TranslationY>
                     <TranslationX>10.56</TranslationX>
-                    <TranslationZ>-546.223267</TranslationZ>
+                    <TranslationZ>-552.213257</TranslationZ>
                     <ScaleX>12</ScaleX>
                     <RotationY>1.57079637</RotationY>
                   </Expression>
@@ -3124,6 +3127,278 @@ Item3 as Light)</scr:Expression>
         </Workflow>
       </Expression>
       <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:RenderFrame" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.PerspectiveView.bonsai">
+        <Light>
+          <X>0</X>
+          <Y>1</Y>
+          <Z>1</Z>
+        </Light>
+        <FieldOfView>10</FieldOfView>
+        <Eye>
+          <X>-2</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Eye>
+        <Target>
+          <X>1</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Target>
+        <Up>
+          <X>0</X>
+          <Y>1</Y>
+          <Z>0</Z>
+        </Up>
+        <NearClip>0.1</NearClip>
+        <FarClip>1000</FarClip>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+        <TranslationX>0</TranslationX>
+        <TranslationY>0</TranslationY>
+        <TranslationZ>0</TranslationZ>
+        <ScaleX>1</ScaleX>
+        <ScaleY>1</ScaleY>
+        <ScaleZ>1</ScaleZ>
+        <MeshName>ParabolicScreen</MeshName>
+        <Ambient>
+          <X>1</X>
+          <Y>1</Y>
+          <Z>1</Z>
+        </Ambient>
+        <Diffuse>
+          <X>1</X>
+          <Y>1</Y>
+          <Z>1</Z>
+        </Diffuse>
+        <Specular>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Specular>
+        <SpecularExponent>0.1</SpecularExponent>
+        <RotationZ>90</RotationZ>
+        <RotationY>90</RotationY>
+        <RotationX>0</RotationX>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:RenderTexture">
+          <gl:RenderState />
+          <gl:ClearColor>IndianRed</gl:ClearColor>
+          <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
+          <gl:Width>4096</gl:Width>
+          <gl:Height>4096</gl:Height>
+          <gl:InternalFormat>Rgba</gl:InternalFormat>
+          <gl:WrapS>Repeat</gl:WrapS>
+          <gl:WrapT>Repeat</gl:WrapT>
+          <gl:MinFilter>Linear</gl:MinFilter>
+          <gl:MagFilter>Linear</gl:MagFilter>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:BindTexture">
+          <gl:TextureSlot>Texture0</gl:TextureSlot>
+          <gl:ShaderName>WarpQuad</gl:ShaderName>
+          <gl:TextureName />
+          <gl:TextureTarget>Texture2D</gl:TextureTarget>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:WarpPerspective">
+          <gl:Destination>
+            <gl:Point2f>
+              <gl:X>-1</gl:X>
+              <gl:Y>-1</gl:Y>
+            </gl:Point2f>
+            <gl:Point2f>
+              <gl:X>-1</gl:X>
+              <gl:Y>1</gl:Y>
+            </gl:Point2f>
+            <gl:Point2f>
+              <gl:X>1</gl:X>
+              <gl:Y>1</gl:Y>
+            </gl:Point2f>
+            <gl:Point2f>
+              <gl:X>1</gl:X>
+              <gl:Y>-1</gl:Y>
+            </gl:Point2f>
+          </gl:Destination>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:UpdateUniform">
+          <gl:UniformName>transform</gl:UniformName>
+          <gl:ShaderName>WarpQuad</gl:ShaderName>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:DrawMesh">
+          <gl:ShaderName>WarpQuad</gl:ShaderName>
+          <gl:MeshName>WarpQuad</gl:MeshName>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>BehaviorCommandBoardA</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:Device">
+          <harp:PortName>COM9</harp:PortName>
+          <harp:DeviceState>Active</harp:DeviceState>
+          <harp:DumpRegisters>true</harp:DumpRegisters>
+          <harp:LedState>On</harp:LedState>
+          <harp:VisualIndicators>On</harp:VisualIndicators>
+          <harp:Heartbeat>Disable</harp:Heartbeat>
+          <harp:IgnoreErrors>false</harp:IgnoreErrors>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:CommandSubject.bonsai">
+        <Name>BehaviorCommandBoardA</Name>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p4:FlyCapture">
+            <p4:Index>0</p4:Index>
+            <p4:ColorProcessing>Default</p4:ColorProcessing>
+            <p4:NumBuffers>10</p4:NumBuffers>
+            <p4:GrabMode>BufferFrames</p4:GrabMode>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Metadata.embeddedTimeStamp,Metadata.embeddedFrameCounter</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Metadata.embeddedFrameCounter</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p4:GpioPinState" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Val0</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>C:\Users\cindypoo\Desktop\Harp_data\temp.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>true</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>true</io:IncludeHeader>
+          <io:CompatibilityMode>true</io:CompatibilityMode>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Image</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="cv:VideoWriter">
+            <cv:FileName>C:\Users\cindypoo\Desktop\Harp_data\temp</cv:FileName>
+            <cv:Suffix>Timestamp</cv:Suffix>
+            <cv:Buffered>true</cv:Buffered>
+            <cv:Overwrite>true</cv:Overwrite>
+            <cv:FourCC>FMP4</cv:FourCC>
+            <cv:FrameRate>60</cv:FrameRate>
+            <cv:FrameSize>
+              <cv:Width>0</cv:Width>
+              <cv:Height>0</cv:Height>
+            </cv:FrameSize>
+            <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="wie:KeyDown">
+            <wie:Filter>F11</wie:Filter>
+            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="p3:CameraCommand">
+          <p3:Type>StartCamera0</p3:Type>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="wie:KeyDown">
+            <wie:Filter>F12</wie:Filter>
+            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="p3:CameraCommand">
+          <p3:Type>StopCamera0</p3:Type>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Merge" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="harp:Device">
+            <harp:PortName>COM4</harp:PortName>
+            <harp:DeviceState>Active</harp:DeviceState>
+            <harp:DumpRegisters>true</harp:DumpRegisters>
+            <harp:LedState>On</harp:LedState>
+            <harp:VisualIndicators>On</harp:VisualIndicators>
+            <harp:Heartbeat>Enable</harp:Heartbeat>
+            <harp:IgnoreErrors>false</harp:IgnoreErrors>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>MessageBytes</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="dsp:MatrixWriter">
+            <dsp:Path>C:\Users\cindypoo\Desktop\Harp_data\cameracontroldata</dsp:Path>
+            <dsp:Suffix>Timestamp</dsp:Suffix>
+            <dsp:Overwrite>false</dsp:Overwrite>
+            <dsp:Layout>ColumnMajor</dsp:Layout>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Delay">
+            <rx:DueTime>PT5S</rx:DueTime>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Take">
+            <rx:Count>1</rx:Count>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="WorkflowOutput" />
+      </Expression>
+      <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
           <rx:DueTime>PT0S</rx:DueTime>
           <rx:Period>PT0S</rx:Period>
@@ -3498,135 +3773,6 @@ Item3 as Light)</scr:Expression>
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:RenderFrame" />
-      </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.PerspectiveView.bonsai">
-        <Light>
-          <X>0</X>
-          <Y>1</Y>
-          <Z>1</Z>
-        </Light>
-        <FieldOfView>10</FieldOfView>
-        <Eye>
-          <X>-2</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Eye>
-        <Target>
-          <X>1</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Target>
-        <Up>
-          <X>0</X>
-          <Y>1</Y>
-          <Z>0</Z>
-        </Up>
-        <NearClip>0.1</NearClip>
-        <FarClip>1000</FarClip>
-      </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-        <TranslationX>0</TranslationX>
-        <TranslationY>0</TranslationY>
-        <TranslationZ>0</TranslationZ>
-        <ScaleX>1</ScaleX>
-        <ScaleY>1</ScaleY>
-        <ScaleZ>1</ScaleZ>
-        <MeshName>ParabolicScreen</MeshName>
-        <Ambient>
-          <X>1</X>
-          <Y>1</Y>
-          <Z>1</Z>
-        </Ambient>
-        <Diffuse>
-          <X>1</X>
-          <Y>1</Y>
-          <Z>1</Z>
-        </Diffuse>
-        <Specular>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Specular>
-        <SpecularExponent>0.1</SpecularExponent>
-        <RotationZ>90</RotationZ>
-        <RotationY>90</RotationY>
-        <RotationX>0</RotationX>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:RenderTexture">
-          <gl:RenderState />
-          <gl:ClearColor>IndianRed</gl:ClearColor>
-          <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
-          <gl:Width>4096</gl:Width>
-          <gl:Height>4096</gl:Height>
-          <gl:InternalFormat>Rgba</gl:InternalFormat>
-          <gl:WrapS>Repeat</gl:WrapS>
-          <gl:WrapT>Repeat</gl:WrapT>
-          <gl:MinFilter>Linear</gl:MinFilter>
-          <gl:MagFilter>Linear</gl:MagFilter>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:BindTexture">
-          <gl:TextureSlot>Texture0</gl:TextureSlot>
-          <gl:ShaderName>WarpQuad</gl:ShaderName>
-          <gl:TextureName />
-          <gl:TextureTarget>Texture2D</gl:TextureTarget>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:WarpPerspective">
-          <gl:Destination>
-            <gl:Point2f>
-              <gl:X>-1</gl:X>
-              <gl:Y>-1</gl:Y>
-            </gl:Point2f>
-            <gl:Point2f>
-              <gl:X>-1</gl:X>
-              <gl:Y>1</gl:Y>
-            </gl:Point2f>
-            <gl:Point2f>
-              <gl:X>1</gl:X>
-              <gl:Y>1</gl:Y>
-            </gl:Point2f>
-            <gl:Point2f>
-              <gl:X>1</gl:X>
-              <gl:Y>-1</gl:Y>
-            </gl:Point2f>
-          </gl:Destination>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:UpdateUniform">
-          <gl:UniformName>transform</gl:UniformName>
-          <gl:ShaderName>WarpQuad</gl:ShaderName>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:DrawMesh">
-          <gl:ShaderName>WarpQuad</gl:ShaderName>
-          <gl:MeshName>WarpQuad</gl:MeshName>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>BehaviorCommandBoardA</Name>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="harp:Device">
-          <harp:PortName>COM9</harp:PortName>
-          <harp:DeviceState>Active</harp:DeviceState>
-          <harp:DumpRegisters>true</harp:DumpRegisters>
-          <harp:LedState>On</harp:LedState>
-          <harp:VisualIndicators>On</harp:VisualIndicators>
-          <harp:Heartbeat>Disable</harp:Heartbeat>
-          <harp:IgnoreErrors>false</harp:IgnoreErrors>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:CommandSubject.bonsai">
-        <Name>BehaviorCommandBoardA</Name>
-      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -3660,14 +3806,34 @@ Item3 as Light)</scr:Expression>
       <Edge From="43" To="44" Label="Source1" />
       <Edge From="44" To="45" Label="Source1" />
       <Edge From="45" To="46" Label="Source1" />
+      <Edge From="46" To="47" Label="Source1" />
       <Edge From="47" To="48" Label="Source1" />
-      <Edge From="48" To="49" Label="Source1" />
       <Edge From="49" To="50" Label="Source1" />
-      <Edge From="50" To="51" Label="Source1" />
-      <Edge From="51" To="52" Label="Source1" />
       <Edge From="52" To="53" Label="Source1" />
-      <Edge From="53" To="54" Label="Source1" />
+      <Edge From="52" To="54" Label="Source1" />
+      <Edge From="52" To="55" Label="Source1" />
+      <Edge From="52" To="59" Label="Source1" />
+      <Edge From="53" To="57" Label="Source1" />
+      <Edge From="54" To="57" Label="Source2" />
       <Edge From="55" To="56" Label="Source1" />
+      <Edge From="56" To="57" Label="Source3" />
+      <Edge From="57" To="58" Label="Source1" />
+      <Edge From="59" To="60" Label="Source1" />
+      <Edge From="61" To="62" Label="Source1" />
+      <Edge From="62" To="65" Label="Source1" />
+      <Edge From="63" To="64" Label="Source1" />
+      <Edge From="64" To="65" Label="Source2" />
+      <Edge From="64" To="69" Label="Source1" />
+      <Edge From="65" To="66" Label="Source1" />
+      <Edge From="66" To="67" Label="Source1" />
+      <Edge From="67" To="68" Label="Source1" />
+      <Edge From="69" To="70" Label="Source1" />
+      <Edge From="70" To="71" Label="Source1" />
+      <Edge From="72" To="73" Label="Source1" />
+      <Edge From="73" To="74" Label="Source1" />
+      <Edge From="74" To="75" Label="Source1" />
+      <Edge From="75" To="76" Label="Source1" />
+      <Edge From="76" To="77" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

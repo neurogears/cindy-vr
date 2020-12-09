@@ -30,3 +30,5 @@ TcpServerDemo/Backup1/TcpServer.cs
 TcpServerDemo/Backup1/TcpServerDemo.csproj
 TcpServerDemo/Backup1/Properties/AssemblyInfo.cs
 TcpServerDemo/Properties/AssemblyInfo.cs
+**/Data
+**/Protocols
